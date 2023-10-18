@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& p, int k) {
+        vector<pair<int,int>> x(p.size());
+        vector<vector<int>> res;
+        for(int i=0;i<p.size();i++){
+            x[i].second=i;
+            x[i].first=(p[i][0]*p[i][0] + p[i][1]*p[i][1]);
+        }
+        sort(x.begin(),x.end());
+        int a=0;
+        for(int i=0;i<k;i++){
+            res.push_back(p[x[a].second]);
+            a++;
+        }
+        return res;
+    }
+};
