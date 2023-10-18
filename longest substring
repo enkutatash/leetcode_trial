@@ -1,0 +1,17 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        x=''
+        max=0
+        for i in s:
+            if i not in x:
+                x=x+i
+                max=len(x) if len(x)>max else max
+            else:
+               x=x+i
+               y=x.find(i)
+               x=x[y+1:]
+               max=len(x) if len(x)>max else max
+
+
+        return max
+        
